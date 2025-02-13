@@ -10,7 +10,7 @@
             font-family: 'Comic Sans MS', cursive, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('bg.gif') repeat; /* Set background to bg.gif and repeat */
+            background: url('bg.gif') repeat;
             color: #fff;
         }
 
@@ -60,7 +60,7 @@
 
         .marquee img {
             height: 100px;
-            margin-right: 50px; /* Adds spacing between images */
+            margin-right: 50px;
         }
 
         @keyframes marquee {
@@ -68,9 +68,46 @@
             to { transform: translateX(-100%); }
         }
 
+        .tips {
+            background: rgba(255, 255, 255, 0.8);
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tips h2 {
+            color: #FFEA00;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .tips ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tips li {
+            margin: 15px 0;
+            background: #FFEA00;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+        }
+
+        .tips li:hover {
+            background: #FFDD33;
+        }
+
         .btn-container {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             margin-top: 20px;
         }
 
@@ -78,35 +115,46 @@
             background-color: #FFEA00;
             color: #333;
             font-size: 1.2rem;
-            padding: 15px 30px;
-            border: 2px dashed #333;
+            padding: 20px 40px;
+            margin: 10px;
+            text-decoration: none;
             border-radius: 10px;
-            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 250px;
             text-align: center;
-            transition: background-color 0.3s;
+            border: 2px dashed #333;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
         }
 
         .btn:hover {
             background-color: #FFDD33;
         }
 
-        /* Hidden Iframe Section */
-        .iframe-container {
+        .iframe-container, .scam-info {
             display: none;
             text-align: center;
             margin-top: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .btn {
+                width: 200px;
                 font-size: 1rem;
-                padding: 10px 20px;
             }
 
             .marquee img {
                 height: 80px;
+            }
+
+            .container {
+                padding: 15px;
             }
         }
 
@@ -131,9 +179,35 @@
             <p>Let's make the internet a safer place for everyone, especially you!</p>
         </div>
 
-        <!-- Action Button to Show PowerPoint -->
+        <!-- Safety Tips -->
+        <div class="tips">
+            <h2>💡 Top Online Safety Tips</h2>
+            <ul>
+                <li>🔐 <strong>Use Strong Passwords:</strong> Create super secret codes for your accounts!</li>
+                <li>🕵️‍♂️ <strong>Beware of Scams:</strong> If something looks fishy, don't click on it!</li>
+                <li>📢 <strong>Keep Personal Info Private:</strong> Don't share too much online. Your private stuff is yours!</li>
+                <li>💾 <strong>Download Smart:</strong> Only download apps and files from trusted places!</li>
+                <li>🔍 <strong>Verify Sources:</strong> If you're not sure, ask an adult or check the info twice!</li>
+            </ul>
+        </div>
+
+        <!-- Action Buttons -->
         <div class="btn-container">
+            <button class="btn" onclick="showScamInfo()">🚨 Avoid Scams & Viruses</button>
             <button class="btn" onclick="showIframe()">📂 View PowerPoint</button>
+        </div>
+
+        <!-- Hidden Scam Info -->
+        <div id="scam-info" class="scam-info">
+            <h2>🚨 Avoiding Scams & Viruses</h2>
+            <p>Online scams and viruses are everywhere! Here’s how to stay safe:</p>
+            <ul>
+                <li>⚠️ <strong>Never click on unknown links:</strong> If a message or email looks suspicious, ignore it.</li>
+                <li>🔍 <strong>Check website URLs:</strong> Always make sure the website is real and secure.</li>
+                <li>📥 <strong>Download only from trusted sources:</strong> Avoid downloading files from unknown emails or pop-ups.</li>
+                <li>🛡️ <strong>Use antivirus software:</strong> Keep your device protected at all times.</li>
+                <li>🔑 <strong>Enable two-factor authentication:</strong> This makes hacking your account much harder!</li>
+            </ul>
         </div>
 
         <!-- Hidden Iframe for PowerPoint -->
@@ -146,6 +220,10 @@
     <script>
         function showIframe() {
             document.getElementById("iframe-container").style.display = "block";
+        }
+
+        function showScamInfo() {
+            document.getElementById("scam-info").style.display = "block";
         }
     </script>
 
