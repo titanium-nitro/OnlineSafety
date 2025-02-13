@@ -43,22 +43,24 @@
             margin-top: 10px;
         }
 
-        /* Marquee for Dog Image */
+        /* Full-Width Marquee */
         .marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
             width: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.8);
             padding: 10px 0;
+            position: relative;
         }
 
         .marquee {
-            display: inline-block;
-            animation: marquee 8s linear infinite;
+            display: flex;
+            white-space: nowrap;
+            animation: marquee 10s linear infinite;
         }
 
         .marquee img {
-            height: 80px;
+            height: 100px;
+            margin-right: 50px; /* Adds spacing between images */
         }
 
         @keyframes marquee {
@@ -66,90 +68,45 @@
             to { transform: translateX(-100%); }
         }
 
-        .tips {
-            background: rgba(255, 255, 255, 0.8);
-            color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            font-size: 1.2rem;
-            text-align: left;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .tips h2 {
-            color: #FFEA00;
-            font-size: 2rem;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .tips ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .tips li {
-            margin: 15px 0;
-            background: #FFEA00;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 1.1rem;
-        }
-
-        .tips li:hover {
-            background: #FFDD33;
-        }
-
         .btn-container {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
         }
 
         .btn {
             background-color: #FFEA00;
             color: #333;
             font-size: 1.2rem;
-            padding: 20px 40px;
-            margin: 10px;
-            text-decoration: none;
-            border-radius: 10px;
-            transition: background-color 0.3s ease;
-            width: 250px;
-            text-align: center;
+            padding: 15px 30px;
             border: 2px dashed #333;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
             cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .btn:hover {
             background-color: #FFDD33;
         }
 
-        /* Hidden Info Section */
-        .info {
+        /* Hidden Iframe Section */
+        .iframe-container {
             display: none;
-            background: rgba(255, 255, 255, 0.9);
-            color: #000;
-            padding: 20px;
-            border-radius: 10px;
+            text-align: center;
             margin-top: 20px;
-            font-size: 1.1rem;
-            text-align: left;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .btn {
-                width: 200px;
                 font-size: 1rem;
+                padding: 10px 20px;
             }
 
-            .container {
-                padding: 15px;
+            .marquee img {
+                height: 80px;
             }
         }
 
@@ -157,9 +114,12 @@
 </head>
 <body>
 
-    <!-- Marquee with Dog Image -->
+    <!-- Full-Width Marquee with Dog Image -->
     <div class="marquee-container">
         <div class="marquee">
+            <img src="dog.png" alt="Funny Dog">
+            <img src="dog.png" alt="Funny Dog">
+            <img src="dog.png" alt="Funny Dog">
             <img src="dog.png" alt="Funny Dog">
         </div>
     </div>
@@ -171,44 +131,23 @@
             <p>Let's make the internet a safer place for everyone, especially you!</p>
         </div>
 
-        <!-- Safety Tips -->
-        <div class="tips">
-            <h2>💡 Top Online Safety Tips</h2>
-            <ul>
-                <li>🔐 <strong>Use Strong Passwords:</strong> Create super secret codes for your accounts!</li>
-                <li>🕵️‍♂️ <strong>Beware of Scams:</strong> If something looks fishy, don't click on it!</li>
-                <li>📢 <strong>Keep Personal Info Private:</strong> Don't share too much online. Your private stuff is yours!</li>
-                <li>💾 <strong>Download Smart:</strong> Only download apps and files from trusted places!</li>
-                <li>🔍 <strong>Verify Sources:</strong> If you're not sure, ask an adult or check the info twice!</li>
-            </ul>
-        </div>
-
-        <!-- Action Buttons -->
+        <!-- Action Button to Show PowerPoint -->
         <div class="btn-container">
-            <button class="btn" onclick="showInfo()">Avoid Scams & Viruses</button>
+            <button class="btn" onclick="showIframe()">📂 View PowerPoint</button>
         </div>
 
-        <!-- Hidden Info Section -->
-        <div id="info" class="info">
-            <h2>🚨 Avoiding Scams & Viruses</h2>
-            <p>Scammers and hackers try to trick people online to steal their information or install harmful software. Here’s how to stay safe:</p>
-            <ul>
-                <li>⚠️ **Watch Out for Phishing:** Never click on suspicious emails or messages asking for personal details.</li>
-                <li>🛑 **Don’t Download Random Files:** Always get software from official websites, not shady links.</li>
-                <li>🔍 **Verify Before You Trust:** If a deal looks too good to be true, it probably is!</li>
-                <li>🛡 **Use Antivirus Software:** Keep your devices protected by updating and running scans regularly.</li>
-                <li>👀 **Be Skeptical of Pop-Ups:** Many scams start with fake alerts. Don’t click—close the tab instead!</li>
-            </ul>
+        <!-- Hidden Iframe for PowerPoint -->
+        <div id="iframe-container" class="iframe-container">
+            <iframe src="https://1drv.ms/p/c/c02e3708008677e2/IQRbZ0zSGf59QJtVojPGyEsOASnFnj4Jbc0TRC1A_hOrZgI" width="402" height="327" frameborder="0" scrolling="no"></iframe>
         </div>
 
     </div>
 
     <script>
-        function showInfo() {
-            document.getElementById("info").style.display = "block";
+        function showIframe() {
+            document.getElementById("iframe-container").style.display = "block";
         }
     </script>
 
 </body>
 </html>
-
